@@ -50,7 +50,7 @@
       left: 0;
       right: unset;
       height: 100%;
-      width: 35%;
+      width: 30%;
       background-color: rgba(27, 26, 26, 0.75);
     }
 
@@ -87,6 +87,7 @@
       p {
         text-align: left;
         color: #fff;
+        line-height: 1.5em;
       }
     }
 
@@ -122,6 +123,7 @@
         background-size: 200% 100%;
         background-position: right bottom;
         transition: all 0.9s cubic-bezier(0.43, 0.045, 0.1, 0.95);
+        font-weight: 600;
 
         &:hover {
           background-position: left bottom;

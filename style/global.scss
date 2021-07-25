@@ -1,16 +1,15 @@
 // Variables:
 $main-color: #b2a093;
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 
 *::selection {
   color: #ffffff;
   background: $main-color;
 }
 
-html,
-body {
-  font-family: "Roboto", sans-serif;
+* {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
 .page-container {
@@ -25,6 +24,10 @@ body {
 
 h2 {
   font-size: 52px;
+}
+
+p {
+  font-size: 18px;
 }
 
 .products-carousel {

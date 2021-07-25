@@ -1,6 +1,5 @@
 .Header {
   background-color: white;
-  // border-bottom: 3px solid #000;
   padding: 10px 15px;
   margin-bottom: 30px;
 
@@ -34,5 +33,9 @@
         color: rgba(0, 0, 0, 0.8);
       }
     }
+  }
+
+  a {
+    font-weight: 600;
   }
 }
