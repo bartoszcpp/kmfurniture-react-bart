@@ -1,20 +1,12 @@
 * {
-  font-family: "Arial", serif;
-  /* font-family: "Roboto Mono", monospace;
-  font-family: "Merriweather", serif; */
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 
 button:focus {
   outline: 0;
 }
 
-/* .card-img-top:hover {
-  border: 1px solid black;
-} */
-
-@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto+Mono:wght@500&display=swap");
 .row {
   margin-left: 0;
   margin-right: 0;

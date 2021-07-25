@@ -1,10 +1,25 @@
+@import "./global.scss";
+
 .ContentBlock {
-  &__content {
-    h3 {
+  background-color: $main-color;
+  margin: 100px 0;
+  padding: 0 70px;
+
+  .row {
+    overflow: visible;
+  }
+
+  &__description {
+    padding: 70px 40px 30px;
+
+    p,
+    h2 {
       text-align: left;
+      color: #000;
     }
-    p {
-      text-align: justify;
-    }
+  }
+
+  &__image {
+    transform: translateY(70px);
   }
 }

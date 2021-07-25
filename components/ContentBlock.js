@@ -6,17 +6,12 @@ import LazyImage from "./LazyImage";
 const POSTS_QUERY = gql`
   query MyQuery($data: ID!) {
     post(id: $data, idType: SLUG) {
-      acf_field {
-        kontent1Obrazek {
+      home_page_acf {
+        aboutImage {
           sourceUrl
+          slug
         }
-        kontent1Tresc
-        kontent1Tytul
-        kontent2Obrazek {
-          sourceUrl
-        }
-        kontent2Tresc
-        kontent2Tytul
+        aboutDescription
       }
     }
   }
@@ -25,9 +20,8 @@ const POSTS_QUERY = gql`
 const ContentBlock = (props) => {
   const { id } = props;
   let cms_data = {
-    kontent1Tytul: "",
-    kontent1Tresc: "",
-    kontent1Obrazek: "",
+    aboutImage: "",
+    aboutDescription: "",
   };
 
   const { loading, error, data } = useQuery(POSTS_QUERY, {
@@ -48,36 +42,25 @@ const ContentBlock = (props) => {
 
   if (data) {
     cms_data = {
-      kontent1Tytul: data.post.acf_field.kontent1Tytul,
-      kontent1Tresc: data.post.acf_field.kontent1Tresc,
-      kontent1Obrazek: data.post.acf_field.kontent1Obrazek,
+      aboutImage: data.post.home_page_acf.aboutImage.sourceUrl,
+      aboutDescription: data.post.home_page_acf.aboutDescription,
     };
   }
 
   return (
     <div className="ContentBlock">
-      <div className="container ContentBlock__first">
-        <div className="row">
-          <div className="col-6 ContentBlock__content">
-            <h3>{cms_data.kontent1Tytul}</h3>
-            <p>{cms_data.kontent1Tresc}</p>
-          </div>
-          <div className="col-6">
-            <LazyImage image={cms_data.kontent1Obrazek} />
-          </div>
+      <div className="row">
+        <div className="col-6 ContentBlock__description">
+          <h2>O nas</h2>
+          <p>{cms_data.aboutDescription}</p>
+        </div>
+        <div className="col-6 ContentBlock__image">
+          <img
+            src={cms_data.aboutImage}
+            className="img-fluid ContentBlock__img"
+          ></img>
         </div>
       </div>
-      {/*<div className="container ContentBlock__second">
-          <h3>{data.post.acf_field.kontent2Tytul}</h3>
-          <div className="row">
-            <div className="col-6">
-              <LazyImage image={data.post.acf_field.kontent2Obrazek} />
-            </div>
-            <div className="col-6 ContentBlock__content">
-              <p>{data.post.acf_field.kontent2Tresc}</p>
-            </div>
-          </div>
-      </div> */}
     </div>
   );
 };
