@@ -1,7 +1,19 @@
 // Variables:
 $main-color: #b2a093;
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@100&display=swap");
+
+@mixin tablet {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
 
 *::selection {
   color: #ffffff;
@@ -23,11 +35,28 @@ $main-color: #b2a093;
 }
 
 h2 {
-  font-size: 52px;
+  font-size: 50px;
+  font-family: "Playfair Display", serif;
+
+  @include tablet {
+    font-size: 45px;
+  }
+
+  @include small {
+    font-size: 45px;
+  }
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
+
+  @include tablet {
+    font-size: 16px;
+  }
+
+  @include small {
+    font-size: 16px;
+  }
 }
 
 .products-carousel {

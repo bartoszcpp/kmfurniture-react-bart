@@ -44,6 +44,33 @@
     margin: 50px 0;
     position: relative;
 
+    &__content--mobile,
+    &__title--mobile {
+      display: none;
+
+      @include tablet {
+        display: block;
+      }
+      @include small {
+        display: block;
+      }
+    }
+
+    &__content--mobile {
+      padding: 40px 40px 25px;
+      background-color: $main-color;
+    }
+
+    &__title--mobile {
+      .ProductTile__name {
+        margin: 0;
+
+        h2 {
+          color: #000;
+        }
+      }
+    }
+
     &__overlay {
       position: absolute;
       top: 0;
@@ -51,7 +78,14 @@
       right: unset;
       height: 100%;
       width: 30%;
-      background-color: rgba(27, 26, 26, 0.75);
+      background-color: rgba(27, 26, 26, 0.8);
+
+      @include tablet {
+        display: none;
+      }
+      @include small {
+        display: none;
+      }
     }
 
     &:nth-child(odd) {
@@ -103,6 +137,13 @@
       h2 {
         text-align: left;
         color: #fff;
+
+        @include tablet {
+          margin-left: 15px;
+        }
+        @include small {
+          margin-left: 15px;
+        }
       }
     }
 

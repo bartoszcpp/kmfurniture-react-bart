@@ -18,6 +18,11 @@ const ProductTile = (props) => {
 
   return (
     <div className="ProductTile">
+      <div className="ProductTile__title--mobile">
+        <div className="ProductTile__name">
+          <h2>{name}</h2>
+        </div>
+      </div>
       <div className="ProductTile__image">
         <Flickity className={"products-carousel"} options={flickity_options}>
           <div className="carousel-cell">
@@ -43,6 +48,16 @@ const ProductTile = (props) => {
           <div className="ProductTile__button">
             <Link href="#">Zamów</Link>
           </div>
+        </div>
+      </div>
+      <div className="ProductTile__content--mobile">
+        <div
+          className="ProductTile__short-description"
+          dangerouslySetInnerHTML={{ __html: shortDescription }}
+        ></div>
+        <div className="ProductTile__price">{price} zł</div>
+        <div className="ProductTile__button">
+          <Link href="#">Zamów</Link>
         </div>
       </div>
     </div>

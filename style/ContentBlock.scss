@@ -5,12 +5,20 @@
   margin: 100px 0;
   padding: 0 70px;
 
+  @include small {
+    padding: 0 40px;
+  }
+
   .row {
     overflow: visible;
   }
 
   &__description {
     padding: 70px 40px 30px;
+
+    @include small {
+      padding: 70px 0 0;
+    }
 
     p,
     h2 {
@@ -21,5 +29,9 @@
 
   &__image {
     transform: translateY(70px);
+
+    @include small {
+      transform: translateY(40px);
+    }
   }
 }

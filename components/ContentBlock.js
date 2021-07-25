@@ -50,11 +50,11 @@ const ContentBlock = (props) => {
   return (
     <div className="ContentBlock">
       <div className="row">
-        <div className="col-6 ContentBlock__description">
+        <div className="col-md-6 ContentBlock__description">
           <h2>O nas</h2>
           <p>{cms_data.aboutDescription}</p>
         </div>
-        <div className="col-6 ContentBlock__image">
+        <div className="col-md-6 ContentBlock__image">
           <img
             src={cms_data.aboutImage}
             className="img-fluid ContentBlock__img"
