@@ -78,11 +78,12 @@
       right: unset;
       height: 100%;
       width: 30%;
-      background-color: rgba(27, 26, 26, 0.8);
+      background-color: rgba(255, 255, 255, 0.85);
 
       @include tablet {
         display: none;
       }
+
       @include small {
         display: none;
       }
@@ -107,6 +108,16 @@
       display: none;
     }
 
+    .flickity-viewport {
+      @include tablet {
+        background-color: $main-color;
+      }
+
+      @include small {
+        background-color: $main-color;
+      }
+    }
+
     &__content {
       position: absolute;
       top: 50%;
@@ -120,29 +131,55 @@
     &__short-description {
       p {
         text-align: left;
-        color: #fff;
+        color: #000;
         line-height: 1.5em;
+        font-weight: 600;
+
+        @include tablet {
+          color: #fff;
+          font-weight: 400;
+        }
+
+        @include small {
+          color: #fff;
+          font-weight: 400;
+        }
       }
     }
 
     &__price {
       text-align: left;
-      color: #fff;
+      color: #000;
+      font-weight: 600;
+
+      @include tablet {
+        color: #fff;
+        font-weight: 400;
+      }
+
+      @include small {
+        color: #fff;
+        font-weight: 400;
+      }
     }
 
     &__name {
       margin: 30px 0;
-      border-bottom: 3px solid #fff;
+      border-bottom: 3px solid #000;
 
       h2 {
         text-align: left;
-        color: #fff;
+        color: #000;
 
         @include tablet {
           margin-left: 15px;
+          color: #fff;
+          font-weight: 400;
         }
         @include small {
           margin-left: 15px;
+          color: #fff;
+          font-weight: 400;
         }
       }
     }
@@ -152,14 +189,14 @@
       margin: 30px 0;
 
       a {
-        border: 2px solid #fff;
+        border: 2px solid #000;
         background: none;
-        color: #fff;
+        color: #000;
         padding: 10px 18px;
         background: linear-gradient(
           to left,
-          rgba(255, 0, 0, 0) 50%,
-          rgb(255, 255, 255) 50%
+          rgb(255, 255, 255) 50%,
+          rgb(0, 0, 0) 50%
         );
         background-size: 200% 100%;
         background-position: right bottom;
@@ -168,7 +205,7 @@
 
         &:hover {
           background-position: left bottom;
-          color: #000;
+          color: #fff;
           text-decoration: none;
         }
       }
