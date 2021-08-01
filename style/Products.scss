@@ -153,12 +153,10 @@
 
         @include tablet {
           color: #fff;
-          font-weight: 400;
         }
 
         @include small {
           color: #fff;
-          font-weight: 400;
         }
       }
     }
@@ -170,12 +168,10 @@
 
       @include tablet {
         color: #fff;
-        font-weight: 400;
       }
 
       @include small {
         color: #fff;
-        font-weight: 400;
       }
     }
 
@@ -190,12 +186,10 @@
         @include tablet {
           margin-left: 15px;
           color: #fff;
-          font-weight: 400;
         }
         @include small {
           margin-left: 15px;
           color: #fff;
-          font-weight: 400;
         }
       }
     }

@@ -6,9 +6,13 @@ import Footer from "../components/Footer";
 const Contact = () => {
   return (
     <>
-      <Header />
-      <BackgroundImage id="home_page" />
-      <ContactContainer />
+      <div className="page-container">
+        <main>
+          <Header />
+          <BackgroundImage id="home_page" />
+          <ContactContainer />
+        </main>
+      </div>
       <Footer />
     </>
   );

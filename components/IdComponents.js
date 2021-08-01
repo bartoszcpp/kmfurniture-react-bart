@@ -102,7 +102,7 @@ const IdComponents = (props) => {
               </div>
               {gallery}
             </Flickity>
-            {!is_mobile && <ContactForm name={product.name} />}
+            {!is_mobile && <ContactForm name={product.name} is_pdp={true} />}
           </div>
           <div className="col-md-5 ProductOverview__info">
             <div className="ProductOverview__name">
@@ -113,7 +113,7 @@ const IdComponents = (props) => {
               className="ProductOverview__description"
               dangerouslySetInnerHTML={{ __html: product.description }}
             ></div>
-            {is_mobile && <ContactForm name={product.name} />}
+            {is_mobile && <ContactForm name={product.name} is_pdp={true} />}
           </div>
         </div>
       </div>

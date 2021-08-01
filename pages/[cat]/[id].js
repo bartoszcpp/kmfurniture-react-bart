@@ -9,9 +9,13 @@ const id = () => {
   const { id } = router.query;
   return (
     <>
-      <Header />
-      <BackgroundImage />
-      <IdComponents id={id} />
+      <div className="page-container">
+        <main>
+          <Header />
+          <BackgroundImage id="home_page" />
+          <IdComponents id={id} />
+        </main>
+      </div>
       <Footer />
     </>
   );

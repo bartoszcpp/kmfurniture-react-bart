@@ -53,7 +53,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="Header__collapse" id="basic-navbar-nav">
             <Nav className="mr-right">
-              <Nav.Link href="/contact">KONTAKT</Nav.Link>
+              <Nav.Link href="/Contact">KONTAKT</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </div>
