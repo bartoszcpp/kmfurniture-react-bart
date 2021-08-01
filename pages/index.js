@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>KMfurniture.pl</title>
+        <title>KMfurniture</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="page-container">
