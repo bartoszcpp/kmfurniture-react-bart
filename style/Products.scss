@@ -97,6 +97,14 @@
 
       .flickity-prev-next-button.next {
         display: none;
+
+        @include tablet {
+          display: block;
+        }
+
+        @include small {
+          display: block;
+        }
       }
 
       .flickity-prev-next-button.previous {
@@ -106,6 +114,14 @@
 
     .flickity-prev-next-button.previous {
       display: none;
+
+      @include tablet {
+        display: block;
+      }
+
+      @include small {
+        display: block;
+      }
     }
 
     .flickity-viewport {
