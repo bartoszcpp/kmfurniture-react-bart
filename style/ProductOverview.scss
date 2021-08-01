@@ -3,6 +3,7 @@
 .ProductOverview {
   &__info {
     text-align: left;
+    padding: 0 40px;
 
     @include small {
       margin-top: 50px;
@@ -29,5 +30,9 @@
       text-align: justify;
       font-weight: 600;
     }
+  }
+
+  &__images-form {
+    padding: 0 40px;
   }
 }

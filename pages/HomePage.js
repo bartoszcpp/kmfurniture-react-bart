@@ -9,6 +9,7 @@ const HomePage = () => {
       <Header />
       <BackgroundImage />
       <Products category="home_page" />
+      <div className="border-on-mobile"></div>
       <ContentBlock id="home_page" />
     </>
   );

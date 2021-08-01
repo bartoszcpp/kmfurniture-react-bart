@@ -4,6 +4,13 @@
   margin-top: 50px;
   margin-bottom: 50px;
 
+  @include tablet {
+    margin-bottom: 0;
+  }
+  @include small {
+    margin-bottom: 0;
+  }
+
   &__read-more {
     padding: 0 30px;
     background-color: #fff;

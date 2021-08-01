@@ -88,7 +88,7 @@ const IdComponents = (props) => {
     <div className="container">
       <div className="ProductOverview">
         <div className="row products">
-          <div className="col-md-7">
+          <div className="col-md-7 ProductOverview__images-form">
             <Flickity
               className={"products-carousel"}
               options={flickity_options}
