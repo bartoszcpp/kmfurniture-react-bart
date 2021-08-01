@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import ProductTile from "./ProductTile";
-import ImgProductCat from "./ImgProductCat";
 
 const POSTS_QUERY = gql`
   query MyQuery($data: String!) {

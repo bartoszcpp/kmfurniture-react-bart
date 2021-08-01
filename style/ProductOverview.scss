@@ -1,7 +1,12 @@
+@import "./global.scss";
+
 .ProductOverview {
   &__info {
-    //margin-top: 50px;
     text-align: left;
+
+    @include small {
+      margin-top: 50px;
+    }
 
     h3,
     h4 {
@@ -11,6 +16,18 @@
 
     button {
       margin: 0;
+    }
+  }
+
+  &__name {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #000;
+  }
+
+  &__description {
+    p {
+      text-align: justify;
+      font-weight: 600;
     }
   }
 }

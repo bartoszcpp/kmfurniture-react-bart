@@ -16,6 +16,8 @@ const ProductTile = (props) => {
     </div>
   ));
 
+  const computed_price = parseInt(price.match(/[+-]?\d+(\.\d+)?/g)[0]);
+
   return (
     <div className="ProductTile">
       <div className="ProductTile__title--mobile">
@@ -44,9 +46,11 @@ const ProductTile = (props) => {
             className="ProductTile__short-description"
             dangerouslySetInnerHTML={{ __html: shortDescription }}
           ></div>
-          <div className="ProductTile__price">{price} zł</div>
+          <div className="ProductTile__price">{computed_price} zł</div>
           <div className="ProductTile__button">
-            <Link href="#">Zamów</Link>
+            <Link href="/[cat]/[id]" as={`/all/${slug}`}>
+              Zamów
+            </Link>
           </div>
         </div>
       </div>
@@ -55,9 +59,11 @@ const ProductTile = (props) => {
           className="ProductTile__short-description"
           dangerouslySetInnerHTML={{ __html: shortDescription }}
         ></div>
-        <div className="ProductTile__price">{price} zł</div>
+        <div className="ProductTile__price">{computed_price} zł</div>
         <div className="ProductTile__button">
-          <Link href="#">Zamów</Link>
+          <Link href="/[cat]/[id]" as={`/all/${slug}`}>
+            Zamów
+          </Link>
         </div>
       </div>
     </div>

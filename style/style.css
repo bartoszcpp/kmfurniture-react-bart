@@ -38,18 +38,6 @@ p {
   color: #333232;
 }
 
-/* .bg {
-  background-image: url("/MENU2.jpg");
-  height: 460px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
-/* 
-.container {
-  padding: 90px 30px;
-} */
-
 .navbar {
   background-color: #000000b8;
   z-index: 999999999;
@@ -243,12 +231,12 @@ p {
   justify-content: center;
 }
 
-.containerProducts-border {
+/* .containerProducts-border {
   justify-content: center;
   font-family: "Merriweather", serif;
   border: 5px solid grey;
   margin: 0 50px;
-}
+} */
 
 .oneOfProduct {
   padding: 10px;

@@ -17,7 +17,7 @@ class ContactForm extends Component {
     return (
       <div className="container">
         <div className="contact">
-          <h2>Skontaktuj się z nami!</h2>
+          <h2>Skontaktuj się aby zamówić ten produkt!</h2>
           <form className="form" method="POST" encType="multipart/form-data">
             <input
               type="text"
@@ -32,9 +32,7 @@ class ContactForm extends Component {
               type="text"
               id="subject"
               name="subject"
-              placeholder="Temat"
-              value={this.state.subject}
-              onChange={(e) => this.setState({ subject: e.target.value })}
+              value={`Temat: ${this.props.name}`}
             />
             <input
               type="email"

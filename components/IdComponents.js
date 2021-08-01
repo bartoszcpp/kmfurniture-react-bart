@@ -1,10 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import { AppContext } from "./contex/AppContex";
-import { handleAddToCard } from "../functions";
 import Flickity from "react-flickity-component";
-import Select from "./Select";
+import ContactForm from "./ContactForm";
 
 const POSTS_QUERY = gql`
   query MyQuery($data: ID!) {
@@ -36,8 +34,21 @@ const POSTS_QUERY = gql`
 `;
 
 const IdComponents = (props) => {
-  const { cart, toggleCart, price, togglePrice, count, toggleCount } =
-    useContext(AppContext);
+  let is_mobile;
+  if (typeof window !== "undefined") {
+    const [width, setWidth] = useState(window.innerWidth);
+    function handleWindowSizeChange() {
+      setWidth(window.innerWidth);
+    }
+    useEffect(() => {
+      window.addEventListener("resize", handleWindowSizeChange);
+      return () => {
+        window.removeEventListener("resize", handleWindowSizeChange);
+      };
+    }, []);
+
+    is_mobile = width <= 768;
+  }
 
   const { loading, error, data } = useQuery(POSTS_QUERY, {
     variables: {
@@ -57,31 +68,12 @@ const IdComponents = (props) => {
 
   const product = data.product;
   const gallery_images = data.product.galleryImages;
-  console.log(data.product, "product");
-
-  let select;
-  if (data.product.attributes) {
-    select = data.product.attributes.nodes.map((attribute) => (
-      <Select select={attribute.options} name={attribute.name} />
-    ));
-  } else {
-    select = null;
-  }
+  console.log(data, "product");
 
   const flickity_options = {
     cellAlign: "left",
     contain: true,
     lazyLoad: 1,
-    fullScreen: true,
-    pageDots: false,
-    prevNextButtons: false,
-  };
-
-  const flickity_options_thumbns = {
-    cellAlign: "left",
-    contain: true,
-    groupCells: 3,
-    asNavFor: ".products-carousel",
   };
 
   const gallery = gallery_images.nodes.map((image) => (
@@ -110,44 +102,18 @@ const IdComponents = (props) => {
               </div>
               {gallery}
             </Flickity>
-            <Flickity
-              className={"thumbns-carousel"}
-              options={flickity_options_thumbns}
-            >
-              <div className="carousel-cell">
-                <img
-                  className="img-fluid"
-                  src={product.image.sourceUrl}
-                  alt=""
-                />
-              </div>
-              {gallery}
-            </Flickity>
+            {!is_mobile && <ContactForm name={product.name} />}
           </div>
           <div className="col-md-5 ProductOverview__info">
-            <h3>{product.name}</h3>
-            <h4>{floatValue} zł</h4>
-
-            {/* Select options */}
-            {select}
-
-            <button
-              className="addToCard"
-              onClick={() =>
-                handleAddToCard(
-                  product.slug,
-                  product,
-                  price,
-                  count,
-                  cart,
-                  togglePrice,
-                  toggleCount,
-                  toggleCart
-                )
-              }
-            >
-              DO KOSZYKA
-            </button>
+            <div className="ProductOverview__name">
+              <h3>{product.name}</h3>
+              <h4>{floatValue} zł</h4>
+            </div>
+            <div
+              className="ProductOverview__description"
+              dangerouslySetInnerHTML={{ __html: product.description }}
+            ></div>
+            {is_mobile && <ContactForm name={product.name} />}
           </div>
         </div>
       </div>
