@@ -1,23 +1,54 @@
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import React, { useState, useContext } from "react";
-import Link from "next/link";
-import { AppContext } from "./contex/AppContex";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+import { useQuery } from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
 
-const Header = (props) => {
-  const { logo } = props;
+const POSTS_QUERY = gql`
+  query MyQuery($data: ID!) {
+    post(id: $data, idType: SLUG) {
+      home_page_acf {
+        logo {
+          sourceUrl
+        }
+      }
+    }
+  }
+`;
 
-  const { cart, toggleCart, price, togglePrice, count, toggleCount } =
-    useContext(AppContext);
+const Header = () => {
+  let cms_data = {
+    logo: "",
+  };
+
+  const { loading, error, data } = useQuery(POSTS_QUERY, {
+    variables: {
+      data: "home_page",
+    },
+  });
+
+  if (loading)
+    return (
+      <div className="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
+
+  if (data) {
+    cms_data = {
+      logo: data.post.home_page_acf.logo.sourceUrl,
+    };
+  }
 
   return (
     <>
       <Navbar className="Header navbar" expand="lg">
         <div className="container justify-content-between">
           <Navbar.Brand className="Header__logo" href="/">
-            <img className="img-fluid logoPng" src={logo} alt="" />{" "}
+            <img className="img-fluid logoPng" src={cms_data.logo} alt="" />{" "}
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="Header__collapse" id="basic-navbar-nav">

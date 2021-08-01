@@ -3,13 +3,11 @@ import BackgroundImage from "../components/BackgroungImage";
 import Products from "../components/Products";
 import ContentBlock from "../components/ContentBlock";
 
-const HomePage = (props) => {
-  const { background_image, logo } = props;
-
+const HomePage = () => {
   return (
     <>
-      <Header logo={logo} />
-      <BackgroundImage background_image={background_image} />
+      <Header />
+      <BackgroundImage />
       <Products category="home_page" />
       <ContentBlock id="home_page" />
     </>
